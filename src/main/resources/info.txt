@@ -96,6 +96,22 @@
  사용법 : 
  	@ManyToMany (fetch = FetchType.LAZY)   
  	
+===========================================================
+select distinct *  
+from question q
+       LEFT OUTER JOIN Site_User u1
+             ON q.author_id = u1.id 
+       LEFT OUTER JOIN answer a
+             ON q.id = a.question_id
+       LEFT OUTER JOIN Site_User u2
+             ON a.author_id = u2.id
+
+where q.subject like '%스프링%' 
+	or q.content like '%스프링%' 
+	or u1.username like '%스프링%'
+    or a.content like '%스프링%' 	
+    or u2.username like '%스프링%'
+ 	
  	
  	
  	

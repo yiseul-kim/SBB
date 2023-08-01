@@ -57,6 +57,16 @@
         </ul>
     </div>
     <!-- 페이징처리 끝 -->
+    
+    <!-- 검색의 form 태그
+    			검색처리시 : get 방식으로 처리해야함.
+    					// post 방식인 경우 뒤 
+    -->
+    
+    <form th:action = "@{/question/list}" method="get" id="searchForm">
+		<input type="hidden" id="kw" name="kw" value="${kw}">
+		<input type="hidden" id="paging" name="paging" value="${paging.number}">		
+	</form>
 
 	<a th:href = "@{/question/create}" class="btn btn-primary"> 질문 등록하기</a>
 	
