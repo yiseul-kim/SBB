@@ -9,15 +9,19 @@ import org.springframework.data.domain.Page;
 
 @SpringBootTest
 class QuestionServiceTest4 {
-
-	@Autowired
 	
+	@Autowired
+	QuestionService questionService; 
+
 	@Test
 	void testGetListIntString() {
 		Page<Question> paging = 
-					questionService.getList(1, "스프링");
+				questionService.getList(2, "스프링"); 
 		
-		System.out.println("검색된 갯수 : " + paging.getSize() );
+		
+		//System.out.println("검색된 갯수 : " + paging.getSize() ); // 10 한페이지에 레코드 갯수
+		System.out.println("검색된 갯수 : " + paging.getTotalElements() );
+			
 	}
 
 }
